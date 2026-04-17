@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BS Pressure Washing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --baby-blue: #BFDFFF;
+    --sky: #5BAAEE;
+    --deep-blue: #1a6fb5;
+    --dark: #1a2a3a;
+    --text: #2c3e50;
+    --muted: #607080;
+    --light-bg: #f4f9ff;
+  }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--text); background: #fff; }
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 68px;
+    background: #fff;
+    border-bottom: 1.5px solid var(--baby-blue);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo { font-size: 1.35rem; font-weight: 700; color: var(--deep-blue); letter-spacing: -0.5px; }
+  .logo span { color: var(--sky); }
+  nav ul { display: flex; list-style: none; gap: 28px; }
+  nav ul li a { font-size: 0.92rem; color: var(--muted); font-weight: 500; transition: color 0.2s; }
+  nav ul li a:hover { color: var(--deep-blue); }
+  .nav-cta {
+    background: var(--deep-blue); color: #fff !important;
+    padding: 9px 22px; border-radius: 6px; font-size: 0.88rem !important;
+    font-weight: 600 !important; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--sky) !important; color: #fff; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #eaf4ff 0%, #dceeff 60%, #c5e3ff 100%);
+    padding: 90px 5% 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .hero-text { max-width: 560px; }
+  .hero-badge {
+    display: inline-block; background: var(--baby-blue); color: var(--deep-blue);
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase;
+  }
+  .hero h1 { font-size: 2.9rem; font-weight: 800; color: var(--dark); line-height: 1.15; margin-bottom: 18px; }
+  .hero h1 span { color: var(--deep-blue); }
+  .hero p { font-size: 1.08rem; color: var(--muted); line-height: 1.7; margin-bottom: 34px; max-width: 480px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--deep-blue); color: #fff;
+    padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 600;
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { background: #1558a0; }
+  .btn-secondary {
+    background: #fff; color: var(--deep-blue);
+    padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 600;
+    border: 2px solid var(--deep-blue); transition: all 0.2s; display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--baby-blue); }
+  .hero-visual {
+    flex: 1; min-width: 280px; max-width: 420px;
+    background: #fff; border-radius: 16px;
+    border: 2px solid var(--baby-blue);
+    padding: 32px 28px; text-align: center;
+  }
+  .hero-visual .big-icon { font-size: 4rem; margin-bottom: 12px; }
+  .hero-visual h3 { font-size: 1.1rem; color: var(--deep-blue); font-weight: 700; margin-bottom: 8px; }
+  .hero-visual p { font-size: 0.9rem; color: var(--muted); }
+  .stars { color: #f5a623; font-size: 1.2rem; margin-bottom: 6px; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--deep-blue); color: #fff;
+    display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+    padding: 20px 5%;
+  }
+  .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; font-weight: 500; }
+  .trust-icon { font-size: 1.3rem; }
+
+  /* SECTION BASE */
+  section { padding: 80px 5%; }
+  .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+  .section-title { font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+  .section-sub { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+  .center { text-align: center; }
+  .center .section-sub { margin: 0 auto; }
+
+  /* SERVICES */
+  #services { background: var(--light-bg); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px; margin-top: 50px;
+  }
+  .service-card {
+    background: #fff; border-radius: 14px;
+    border: 1.5px solid var(--baby-blue); padding: 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(26,111,181,0.1); }
+  .service-card .icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+  .service-tag {
+    display: inline-block; margin-top: 14px;
+    background: var(--baby-blue); color: var(--deep-blue);
+    font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 20px;
+  }
+
+  /* WHY US */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 50px; }
+  .why-item { padding: 24px; border-radius: 12px; background: var(--light-bg); border: 1px solid var(--baby-blue); }
+  .why-num { font-size: 2rem; font-weight: 800; color: var(--baby-blue); margin-bottom: 8px; }
+  .why-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .why-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  /* GALLERY */
+  #gallery { background: #fff; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+  .gallery-item {
+    border-radius: 12px; overflow: hidden;
+    border: 2px solid var(--baby-blue); aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--light-bg); flex-direction: column; gap: 8px;
+    color: var(--muted); font-size: 0.85rem;
+  }
+  .gallery-item .ph-icon { font-size: 2rem; }
+  .gallery-label {
+    margin-top: 8px; font-size: 0.78rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px; color: var(--sky);
+  }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--light-bg); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+  .testimonial-card {
+    background: #fff; border-radius: 14px; border: 1.5px solid var(--baby-blue);
+    padding: 26px 22px;
+  }
+  .t-stars { color: #f5a623; margin-bottom: 12px; font-size: 1rem; }
+  .t-text { font-size: 0.93rem; color: var(--text); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+  .t-author { display: flex; align-items: center; gap: 12px; }
+  .t-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--baby-blue); display: flex; align-items: center;
+    justify-content: center; font-weight: 700; font-size: 0.9rem; color: var(--deep-blue);
+  }
+  .t-name { font-weight: 600; font-size: 0.9rem; color: var(--dark); }
+  .t-loc { font-size: 0.8rem; color: var(--muted); }
+
+  /* CONTACT */
+  #contact { background: #fff; }
+  .contact-wrap { display: flex; gap: 60px; flex-wrap: wrap; margin-top: 50px; }
+  .contact-info { flex: 1; min-width: 240px; }
+  .contact-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 28px; }
+  .c-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--baby-blue); display: flex; align-items: center;
+    justify-content: center; font-size: 1.3rem; flex-shrink: 0;
+  }
+  .c-label { font-size: 0.8rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .c-value { font-size: 1rem; color: var(--dark); font-weight: 600; }
+  .contact-form { flex: 2; min-width: 300px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
+  .form-group input, .form-group select, .form-group textarea {
+    border: 1.5px solid var(--baby-blue); border-radius: 8px;
+    padding: 11px 14px; font-size: 0.93rem; color: var(--text);
+    outline: none; transition: border-color 0.2s; background: #fff;
+    font-family: inherit;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--sky);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .submit-btn {
+    background: var(--deep-blue); color: #fff;
+    border: none; border-radius: 8px; padding: 14px 36px;
+    font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s;
+    width: 100%;
+  }
+  .submit-btn:hover { background: var(--sky); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: #aac3d8;
+    padding: 40px 5% 28px;
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px;
+  }
+  .footer-brand .logo { color: #fff; font-size: 1.2rem; }
+  .footer-brand .logo span { color: var(--sky); }
+  .footer-brand p { font-size: 0.85rem; margin-top: 10px; line-height: 1.6; max-width: 240px; }
+  .footer-links h4 { color: #fff; font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-links ul li a { font-size: 0.87rem; color: #aac3d8; transition: color 0.2s; }
+  .footer-links ul li a:hover { color: var(--sky); }
+  .footer-bottom {
+    background: var(--dark); color: #6a8fa8;
+    text-align: center; font-size: 0.8rem; padding: 16px 5%;
+    border-top: 1px solid #2a3f52;
+  }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2rem; }
+    nav ul { display: none; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">BS <span>Pressure</span> Washing</div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Free Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Professional Pressure Washing</div>
+    <h1>Make Your Property <span>Shine Again</span></h1>
+    <p>BS Pressure Washing delivers powerful residential and commercial cleaning services. From driveways to building exteriors — we remove years of grime in a single visit.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="big-icon">💧</div>
+    <div class="stars">★★★★★</div>
+    <h3>Trusted by Homeowners & Businesses</h3>
+    <p>Fast turnaround · Satisfaction guaranteed · Locally owned & operated</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✅</span> Fully Insured</div>
+  <div class="trust-item"><span class="trust-icon">🏠</span> Residential & Commercial</div>
+  <div class="trust-item"><span class="trust-icon">⚡</span> Same-Day Quotes</div>
+  <div class="trust-item"><span class="trust-icon">💯</span> Satisfaction Guaranteed</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="center">
+    <div class="section-label">What We Do</div>
+    <div class="section-title">Our Services</div>
+    <div class="section-sub">We handle it all — from homes to commercial properties. Every job is done with care and professional-grade equipment.</div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon">🏡</div>
+      <h3>House Washing</h3>
+      <p>Safely remove dirt, mold, and algae from siding, brick, and stucco. Restore your home's curb appeal fast.</p>
+      <span class="service-tag">Residential</span>
+    </div>
+    <div class="service-card">
+      <div class="icon">🚗</div>
+      <h3>Driveway & Concrete</h3>
+      <p>Blast away oil stains, tire marks, and embedded grime from concrete, asphalt, and pavers.</p>
+      <span class="service-tag">Residential & Commercial</span>
+    </div>
+    <div class="service-card">
+      <div class="icon">🪵</div>
+      <h3>Deck & Fence Cleaning</h3>
+      <p>Prep wood, composite, and vinyl surfaces for sealing or staining. Revive weathered decks and fences.</p>
+      <span class="service-tag">Residential</span>
+    </div>
+    <div class="service-card">
+      <div class="icon">🏢</div>
+      <h3>Commercial Buildings</h3>
+      <p>Keep storefronts, warehouses, and office exteriors looking professional and well-maintained year-round.</p>
+      <span class="service-tag">Commercial</span>
+    </div>
+    <div class="service-card">
+      <div class="icon">🅿️</div>
+      <h3>Parking Lots</h3>
+      <p>Remove oil, litter residue, and buildup from parking lots, garages, and loading docks.</p>
+      <span class="service-tag">Commercial</span>
+    </div>
+    <div class="service-card">
+      <div class="icon">🏊</div>
+      <h3>Pool Decks & Patios</h3>
+      <p>Eliminate slippery algae, moss, and staining from pool surrounds and outdoor entertaining areas.</p>
+      <span class="service-tag">Residential & Commercial</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section style="background:#fff; padding: 70px 5%;">
+  <div class="section-label">Why Choose Us</div>
+  <div class="section-title">The BS Difference</div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h4>Professional Equipment</h4>
+      <p>Commercial-grade pressure washers and soft wash systems for every surface type.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h4>Eco-Friendly Products</h4>
+      <p>Biodegradable detergents that protect your landscaping, pets, and family.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h4>Locally Owned</h4>
+      <p>We're your neighbors — we take pride in the work we do in our community.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <h4>Free Estimates</h4>
+      <p>No obligation quotes. Know exactly what you're paying before we show up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="center">
+    <div class="section-label">Our Work</div>
+    <div class="section-title">Before & After</div>
+    <div class="section-sub">See the results for yourself. Add your own photos here once you have them!</div>
+  </div>
+  <div class="gallery-grid" style="margin-top: 44px;">
+    <div class="gallery-item"><div class="ph-icon">🏡</div><div class="gallery-label">House Wash</div></div>
+    <div class="gallery-item"><div class="ph-icon">🚗</div><div class="gallery-label">Driveway</div></div>
+    <div class="gallery-item"><div class="ph-icon">🪵</div><div class="gallery-label">Deck Clean</div></div>
+    <div class="gallery-item"><div class="ph-icon">🏢</div><div class="gallery-label">Commercial</div></div>
+    <div class="gallery-item"><div class="ph-icon">🅿️</div><div class="gallery-label">Parking Lot</div></div>
+    <div class="gallery-item"><div class="ph-icon">🏊</div><div class="gallery-label">Pool Deck</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="center">
+    <div class="section-label">Reviews</div>
+    <div class="section-title">What Customers Say</div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"My driveway looks brand new. They were on time, professional, and the price was totally fair. Will definitely call again!"</p>
+      <div class="t-author">
+        <div class="t-avatar">JM</div>
+        <div><div class="t-name">James M.</div><div class="t-loc">Homeowner</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Used them for our storefront and parking lot. Incredibly thorough and quick. Our customers have noticed the difference."</p>
+      <div class="t-author">
+        <div class="t-avatar">SR</div>
+        <div><div class="t-name">Sarah R.</div><div class="t-loc">Business Owner</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Our deck was covered in green algae and looked terrible. After one visit it looked better than when we first built it. Amazing work!"</p>
+      <div class="t-author">
+        <div class="t-avatar">TK</div>
+        <div><div class="t-name">Tom K.</div><div class="t-loc">Homeowner</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in Touch</div>
+  <div class="section-title">Request a Free Quote</div>
+  <div class="section-sub">Fill out the form below or give us a call. We'll get back to you fast with a no-obligation estimate.</div>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="c-icon">📞</div>
+        <div><div class="c-label">Phone</div><div class="c-value">(541) 555-0100</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">📧</div>
+        <div><div class="c-label">Email</div><div class="c-value">info@bspressurewashing.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">📍</div>
+        <div><div class="c-label">Service Area</div><div class="c-value">Klamath Falls, OR & Surrounding Areas</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">🕐</div>
+        <div><div class="c-label">Hours</div><div class="c-value">Mon–Sat: 7am – 6pm</div></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="John" /></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="(541) 555-0000" /></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>House Washing</option>
+          <option>Driveway & Concrete</option>
+          <option>Deck & Fence</option>
+          <option>Commercial Building</option>
+          <option>Parking Lot</option>
+          <option>Pool Deck & Patio</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Property Type</label>
+        <select>
+          <option value="">Residential or Commercial?</option>
+          <option>Residential</option>
+          <option>Commercial</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us about your project</label>
+        <textarea placeholder="Describe what needs cleaning, approximate size, any specific concerns..."></textarea>
+      </div>
+      <button class="submit-btn">Send My Quote Request →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo">BS <span>Pressure</span> Washing</div>
+    <p>Professional pressure washing for homes and businesses in Klamath Falls, OR and surrounding areas.</p>
+  </div>
+  <div class="footer-links">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="#services">House Washing</a></li>
+      <li><a href="#services">Driveways</a></li>
+      <li><a href="#services">Decks & Fences</a></li>
+      <li><a href="#services">Commercial</a></li>
+    </ul>
+  </div>
+  <div class="footer-links">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact">Get a Quote</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2025 BS Pressure Washing. All rights reserved. | Klamath Falls, OR</div>
+
+</body>
+</html>
